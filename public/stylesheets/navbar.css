@@ -1,0 +1,37 @@
+header {
+  height: 64px;
+}
+header > a {
+  text-decoration: none !important;
+}
+.navbar {
+  background-color: #4CAF50; 
+  position: fixed; 
+  width: 100%; 
+  z-index: 1000;
+}
+
+.navbar-brand { 
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: #74c276; 
+  color:white; 
+  border-radius: 10px;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: white; 
+  color: #4CAF50;
+}
+
+.buttons {
+  margin-left: auto;
+}
+
+.navbar-nav .nav-item.active {
+  background-color: #fff; 
+  border-radius: 5px;
+}

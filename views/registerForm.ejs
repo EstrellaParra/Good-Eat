@@ -1,0 +1,165 @@
+<%- include('head') %>
+<link rel="stylesheet" href="/stylesheets/formRegister.css" />
+<title>oneRestaurant</title>
+<%- include('navbar') %>
+
+<main class="container-fluid mb-4">
+  <form
+    action="/register"
+    method="post"
+    enctype="multipart/form-data"
+    class="needs-validation"
+    novalidate
+  >
+    <section class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <h1>Registra tu Restaurante</h1>
+        <div class="row">
+          <div class="col-md-4">
+            <label for="validationCustom01" class="form-label">Nombre</label>
+            <input
+              type="text"
+              name="restaurant_name"
+              class="form-control"
+              id="validationCustom01"
+              required
+            />
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="col-md-4">
+            <label for="validationCustom04" class="form-label"
+              >Tipo de Cocina</label
+            >
+            <select
+              class="form-select"
+              name="style"
+              id="validationCustom04"
+              required
+            >
+              <option selected disabled value="">Elija una opción</option>
+
+              <option>Cocina Americana</option>
+              <option>Cocina Española</option>
+              <option>Cocina Fusión</option>
+              <option>Cocina India</option>
+              <option>Cocina Italiana</option>
+              <option>Cocina Japonesa</option>
+              <option>Cocina Mexicana</option>
+              <option>Cocina Vegana</option>
+              <option>Cocina Vegetariana</option>
+              <option>Real Food</option>
+            </select>
+            <div class="invalid-feedback">Por favor, elija una opción.</div>
+          </div>
+          <div class="col-md-4">
+            <label for="validationCustom02" class="form-label"
+              >Teléfono de Contacto</label
+            >
+            <input
+              type="tel"
+              name="phone_number"
+              class="form-control"
+              id="validationCustom02"
+              required
+            />
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <label for="validationCustomUsername" class="form-label"
+              >Email</label
+            >
+            <div class="input-group has-validation">
+              <span class="input-group-text" id="inputGroupPrepend">@</span>
+              <input
+                type="text"
+                name="email"
+                class="form-control"
+                id="validationCustomUsername"
+                aria-describedby="inputGroupPrepend"
+                required
+              />
+              <div class="invalid-feedback">Este email ya está registrado</div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <label for="validationCustom03" class="form-label"
+              >Contraseña</label
+            >
+            <input
+              type="password"
+              name="password"
+              class="form-control"
+              id="validationCustom03"
+              required
+            />
+          </div>
+
+          <div class="col-md-4">
+            <label for="validationCustom03" class="form-label"
+              >Repita la Contraseña</label
+            >
+            <input
+              type="password"
+              name="password2"
+              class="form-control"
+              id="validationCustom03"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <label for="validationCustom03" class="form-label"
+            >Breve descripción</label
+          >
+          <input
+            type="text"
+            name="restaurant_description"
+            class="form-control"
+            id="validationCustom03"
+            required
+          />
+          <div class="invalid-feedback">Máximo 250 caracteres</div>
+        </div>
+        <div class="col-md-12">
+          <label for="validationCustom05" class="form-label"
+            >Añadir Imagen</label
+          >
+          <input
+            type="file"
+            name="img"
+            class="form-control"
+            id="validationCustom05"
+            required
+          />
+          <div class="invalid-feedback">Please provide a valid zip.</div>
+        </div>
+      </div>
+
+      <div class="col-md-2"></div>
+
+      <h5><%= typeof message != `undefined` ? message : null %></h5>
+
+      <div class="col-md-2"></div>
+      <div class="col-8">
+        <div class="d-flex justify-content-end gap-2 mt-2">
+          <button class="btn btn-primary" type="submit">Registrar</button>
+
+          <a href="/">
+            <button class="btn btn-primary" type="button">Cancelar</button></a
+          >
+
+          <button class="btn btn-primary" type="reset">Limpiar</button>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </section>
+  </form>
+</main>
+
+<%- include('footer') %>

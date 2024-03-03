@@ -1,0 +1,80 @@
+<%- include('head') %>
+<link rel="stylesheet" href="/stylesheets/formRegister.css" />
+<title>Formulario de edición de plato</title>
+<%- include('navbar') %>
+
+<main class="container-fluid">
+  <form
+    action="/dishes/editDish/<%= result[0].dish_id %>/<%= result[0].restaurant_id %>"
+    method="post"
+    enctype="multipart/form-data"
+    class="needs-validation"
+    novalidate
+  >
+    <section class="row justify-content-center">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <h1>Edite su plato: <%= result[0].dish_name %></h1>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Nombre del plato</label
+          >
+          <input
+            type="text"
+            name="dish_name"
+            value="<%= result[0].dish_name %>"
+            class="form-control"
+            id="exampleFormControlInput1"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="validationCustom03" class="form-label"
+            >Descripción</label
+          >
+          <input
+            type="text"
+            name="dish_description"
+            value="<%= result[0].dish_description %>"
+            class="form-control"
+            id="validationCustom03"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="validationCustom05" class="form-label"
+            >Añadir Imagen</label
+          >
+          <input
+            type="file"
+            name="img"
+            class="form-control"
+            id="validationCustom05"
+            required
+          />
+          <div class="invalid-feedback">Please provide a valid zip.</div>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+
+      <h5><%= typeof message != `undefined` ? message : null %></h5>
+
+      <div class="col-md-2"></div>
+      <div class="col-8">
+        <div class="d-flex justify-content-end gap-2">
+          <button class="btn btn-primary" type="submit">Aceptar</button>
+
+          <a href="/oneRestaurant/<%= result[0].restaurant_id %>">
+            <button class="btn btn-primary" type="button">Cancelar</button></a
+          >
+
+          <button class="btn btn-primary" type="reset">Limpiar</button>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </section>
+  </form>
+</main>
+
+<%- include('footer') %>

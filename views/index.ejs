@@ -1,0 +1,48 @@
+<%- include('head') %>
+<link rel="stylesheet" href="/stylesheets/home.css">
+<title>Home</title>
+<%- include('navbar') %>
+
+<main class="container-fluid">
+  <section class="row section1">
+    <div class="col">
+      <h1>Good Eat!</h1>
+      <h2>¿Qué te apetece comer hoy?</h2>
+      <p>Descubre tu nuevo restaurante favorito y sus platos estrella</p>
+    </div>
+  </section>
+
+  <section class="row section2">
+    <div class="col">
+      <h2>Encuentra tu Restaurante</h2>
+      
+      <div class="container">
+        <div class="row">
+        <% result.forEach(elem => { %>
+          <div class="col-md-4 col-sm-12 mb-4">
+            <div class="card">
+              <img src="/images/restaurant/<%= elem.restaurant_img %>" class="card-img-top" alt="Imagen del Restaurante">
+              <div class="card-body">
+                <h5 class="card-title"><%= elem.restaurant_name %></h5>
+                <p class="card-text"><%= elem.style %></p>
+              </div>
+              <div class="description">
+                <p class="card-text"><%= elem.restaurant_description %></p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Telf: <%= elem.phone_number %></li>
+                <li class="list-group-item">Email: <%= elem.email %></li>
+              </ul>
+              <div class="card-body">
+                <a href="/oneRestaurant/<%= elem.restaurant_id %>" class="btn btn-primary">Nuestros Platos</a>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+      </div>     
+    </div>
+  </section>
+</main>
+
+<%- include('footer') %>

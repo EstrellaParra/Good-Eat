@@ -1,0 +1,38 @@
+<%- include('head') %>
+<link rel="stylesheet" href="/stylesheets/oneRestaurant.css">
+<title>oneRestaurant</title>
+<%- include('navbar2') %>
+<link rel="stylesheet" href="/stylesheets/navbar.css">
+
+<main class="container-fluid">
+  <section class="row section1">
+    <div class="col">
+      <img src="/images/restaurant/<%= result[0].restaurant_img %>" alt="Foto del Restaurante">
+      <h1><%= result[0].restaurant_name %></h1>
+      <p><%= result[0].restaurant_description %></p>
+    </div>
+  </section>
+
+  <section class="section2">
+    <h2>Nuestras Especialidades</h2>
+    
+    <div class="row">
+      <% result_dish.forEach((elem)=>{ %>
+        <div class="col-md-4 col-sm-12 mb-4">
+          <div class="card">
+            <img src="/images/dishes/<%= elem.dish_img %>" class="card-img-top" alt="imagen del plato" />
+            <div class="card-body">
+              <h5 class="card-title"><%= elem.dish_name %></h5>
+              <p class="card-text"><%= elem.dish_description %></p>
+              <a href="/dishes/editDish/<%= elem.dish_id %>" class="btn btn-primary m-1">Editar Plato</a>
+              <a href="/dishes/deleteDish/<%= elem.dish_id %>/<%= elem.restaurant_id %>" class="btn btn-primary m-1">Eliminar Plato</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+    
+  </section>
+</main>
+
+<%- include('footer') %>
